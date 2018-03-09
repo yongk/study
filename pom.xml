@@ -9,6 +9,7 @@
     <modules>
         <module>ignite</module>
         <module>flowable</module>
+        <module>spring-framework</module>
     </modules>
     <packaging>pom</packaging>
 
