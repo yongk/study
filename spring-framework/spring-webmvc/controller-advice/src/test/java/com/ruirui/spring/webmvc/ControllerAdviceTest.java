@@ -1,4 +1,4 @@
-package com.ruirui.spring.web;
+package com.ruirui.spring.webmvc;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -14,13 +14,12 @@ import org.springframework.web.context.WebApplicationContext;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes = HelloControllerIncludeStringReturnType.class)
-public class ControllerAdviceIncludeStringReturnTypeTest {
+@ContextConfiguration(classes = HelloController.class)
+public class ControllerAdviceTest {
 
     @Autowired
     WebApplicationContext wac;
@@ -38,8 +37,7 @@ public class ControllerAdviceIncludeStringReturnTypeTest {
                 .accept(MediaType.APPLICATION_JSON_UTF8))
                 .andDo(log())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.code").value("200"))
-                .andExpect(jsonPath("$.data").value("Hello world"));
+                .andExpect(content().string("Hello world"));
     }
 
     @Test

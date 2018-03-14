@@ -1,6 +1,6 @@
-package com.ruirui.spring.web.dto.impl;
+package com.ruirui.spring.webmvc.dto.impl;
 
-import com.ruirui.spring.web.dto.SuccessResponseBody;
+import com.ruirui.spring.webmvc.dto.SuccessResponseBody;
 
 public class DefaultSuccessResponseBody implements SuccessResponseBody {
 

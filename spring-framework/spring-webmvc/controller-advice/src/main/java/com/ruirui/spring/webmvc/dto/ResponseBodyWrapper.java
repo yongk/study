@@ -1,4 +1,4 @@
-package com.ruirui.spring.web.dto;
+package com.ruirui.spring.webmvc.dto;
 
 public interface ResponseBodyWrapper {
 

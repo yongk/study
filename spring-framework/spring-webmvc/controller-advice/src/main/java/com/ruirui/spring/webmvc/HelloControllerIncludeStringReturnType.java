@@ -1,4 +1,4 @@
-package com.ruirui.spring.web;
+package com.ruirui.spring.webmvc;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -8,9 +8,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @RestController
 @Configuration
-@ComponentScan("com.ruirui.spring.web.advice.simple")
+@ComponentScan("com.ruirui.spring.webmvc.advice.includestringreturntype")
 @EnableWebMvc
-public class HelloController {
+public class HelloControllerIncludeStringReturnType {
 
     @GetMapping("/string")
     public String string() {

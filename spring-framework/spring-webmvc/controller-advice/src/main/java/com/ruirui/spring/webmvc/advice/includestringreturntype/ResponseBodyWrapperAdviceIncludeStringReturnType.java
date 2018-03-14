@@ -1,9 +1,9 @@
-package com.ruirui.spring.web.advice.includestringreturntype;
+package com.ruirui.spring.webmvc.advice.includestringreturntype;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ruirui.spring.web.advice.simple.ResponseBodyWrapperAdvice;
-import com.ruirui.spring.web.dto.impl.DefaultSuccessResponseBody;
+import com.ruirui.spring.webmvc.advice.simple.ResponseBodyWrapperAdvice;
+import com.ruirui.spring.webmvc.dto.impl.DefaultSuccessResponseBody;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;

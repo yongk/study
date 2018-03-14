@@ -1,8 +1,8 @@
-package com.ruirui.spring.web.advice.simple;
+package com.ruirui.spring.webmvc.advice.simple;
 
-import com.ruirui.spring.web.advice.includestringreturntype.ResponseBodyWrapperAdviceIncludeStringReturnType;
-import com.ruirui.spring.web.dto.SuccessResponseBody;
-import com.ruirui.spring.web.dto.impl.DefaultSuccessResponseBody;
+import com.ruirui.spring.webmvc.advice.includestringreturntype.ResponseBodyWrapperAdviceIncludeStringReturnType;
+import com.ruirui.spring.webmvc.dto.SuccessResponseBody;
+import com.ruirui.spring.webmvc.dto.impl.DefaultSuccessResponseBody;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -20,7 +20,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  *     此实现不能包装返回类型是String的方法，需要此功能，使用{@link ResponseBodyWrapperAdviceIncludeStringReturnType}。
  * </p>
  *
- * @see com.ruirui.spring.web.dto.SuccessResponseBody
+ * @see com.ruirui.spring.webmvc.dto.SuccessResponseBody
  */
 @ControllerAdvice
 public class ResponseBodyWrapperAdvice implements ResponseBodyAdvice<Object> {
