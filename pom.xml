@@ -10,6 +10,7 @@
         <module>ignite</module>
         <module>flowable</module>
         <module>spring-framework</module>
+        <module>mybatis3</module>
     </modules>
     <packaging>pom</packaging>
 

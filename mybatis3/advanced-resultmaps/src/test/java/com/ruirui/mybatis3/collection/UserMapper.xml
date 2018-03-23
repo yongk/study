@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ruirui.mybatis3.collection.UserRepository">
+    <resultMap id="userRM" type="com.ruirui.mybatis3.collection.User" >
+        <id property="username" column="username_"/>
+        <result property="description" column="description_"/>
+        <collection property="roles" ofType="com.ruirui.mybatis3.collection.Role"
+                    resultMap="roleRM" columnPrefix="role_" notNullColumn="name_" />
+    </resultMap>
+
+    <select id="findAll" resultMap="userRM">
+        SELECT
+            u.username_,
+            u.description_,
+            r.name_             AS role_name_,
+            r.description_      AS role_description_
+        FROM user u
+        JOIN role r
+        ON u.username_ = r.user_
+    </select>
+
+
+    <!-- collection中的column说明：需要传多个参数时可以写{prop1=col1,prop2=col2,...}，当一个参数时可以直接写col1 -->
+    <resultMap id="userRMNestedSelect" type="com.ruirui.mybatis3.collection.User" >
+        <id property="username" column="username_"/>
+        <result property="description" column="description_"/>
+        <collection property="roles" javaType="arraylist" column="username=username_"
+                    ofType="com.ruirui.mybatis3.collection.Role" select="findRolesByUsername"/>
+    </resultMap>
+
+    <resultMap id="roleRM" type="com.ruirui.mybatis3.collection.Role" >
+        <id property="roleName" column="name_" />
+        <result property="description" column="description_"/>
+        <result property="user" column="user_"/>
+    </resultMap>
+
+    <select id="findAllNestedSelect" resultMap="userRMNestedSelect">
+        SELECT username_, description_
+        FROM user
+    </select>
+
+    <select id="findRolesByUsername" resultMap="roleRM">
+        SELECT name_, description_, user_
+        FROM role
+        WHERE user_ = #{username}
+    </select>
+
+</mapper>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ruirui.mybatis3.discriminator.PersonRepository">
+    <resultMap id="personRM" type="com.ruirui.mybatis3.discriminator.Person">
+        <id property="id" column="id_"/>
+        <result property="name" column="name_" />
+        <result property="type" column="type_" />
+        <discriminator javaType="string" column="type_">
+            <case value="SALE" resultMap="salesmanRM"></case>
+            <case value="CUSTOMER" resultMap="customerRM"></case>
+        </discriminator>
+    </resultMap>
+
+    <resultMap id="customerRM" type="com.ruirui.mybatis3.discriminator.Customer" extends="personRM">
+        <association property="salesman" column="id_" select="selectSalesmanOfCustomer" notNullColumn="id_"/>
+    </resultMap>
+
+    <resultMap id="salesmanRM" type="com.ruirui.mybatis3.discriminator.Salesman" extends="personRM">
+        <collection property="customers" ofType="com.ruirui.mybatis3.discriminator.Customer" column="id_"
+                    select="selectCustomersOfSalesman" notNullColumn="id_"/>
+    </resultMap>
+
+    <select id="findAllPersons" resultMap="personRM">
+        SELECT
+            id_, name_, type_
+        FROM person
+    </select>
+
+    <select id="selectCustomersOfSalesman" resultMap="customerRM">
+        SELECT p.id_, p.name_, p.type_
+        FROM salesman_customer s INNER JOIN person p
+        ON s.customer_id_ = p.id_
+        WHERE salesman_id_ = #{id}
+    </select>
+
+    <select id="selectSalesmanOfCustomer" resultMap="salesmanRM">
+        SELECT p.id_, p.name_, p.type_
+        FROM salesman_customer s INNER JOIN person p
+        ON s.salesman_id_ = p.id_
+        WHERE customer_id_ = #{id}
+    </select>
+
+</mapper>
