@@ -16,6 +16,7 @@
         <module>spring-beans</module>
         <module>spring-jdbc</module>
         <module>spring-webmvc</module>
+        <module>spring-aop</module>
     </modules>
 
     <properties>
