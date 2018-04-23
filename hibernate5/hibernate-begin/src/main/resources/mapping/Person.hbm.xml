@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-access="field">
+    <class name="com.ruirui.hibernate5.begin.Person" table="M_PERSON_">
+
+        <id name="id" column="ID_">
+            <generator class="org.hibernate.id.IdentityGenerator"/>
+        </id>
+
+        <property name="name" column="NAME_"></property>
+
+        <property name="age" column="AGE_"></property>
+
+    </class>
+</hibernate-mapping>
