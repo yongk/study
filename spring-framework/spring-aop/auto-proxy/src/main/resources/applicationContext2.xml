@@ -1,0 +1,15 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+
+    <bean class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <constructor-arg index="0">
+            <bean class="org.springframework.aop.interceptor.DebugInterceptor" />
+        </constructor-arg>
+    </bean>
+
+
+    <bean id="personManager" class="com.ruirui.spring.aop.autoproxy.PersonManagerImpl" />
+</beans>
