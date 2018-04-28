@@ -1,6 +1,6 @@
 package com.ruirui.webmvc.exception.translator.advice;
 
-import com.ruirui.webmvc.exception.translator.dto.annotation.SuccessMessage;
+import com.ruirui.webmvc.exception.translator.dto.annotation.SimpleSuccessMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -15,7 +15,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 @ControllerAdvice
 public class VoidResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
-    protected final Logger logger = LoggerFactory.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(VoidResponseBodyAdvice.class);
 
     @Override
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
@@ -27,6 +27,6 @@ public class VoidResponseBodyAdvice implements ResponseBodyAdvice<Object> {
         if (logger.isTraceEnabled()) {
             logger.debug("Enhance return type void");
         }
-        return new SuccessMessage();
+        return new SimpleSuccessMessage();
     }
 }
