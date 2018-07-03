@@ -1,4 +1,4 @@
-package com.ruirui.hibernate5.begin;
+package com.ruirui.hibernate5.genericdao;
 
 public class Person {
     private Integer id;

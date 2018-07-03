@@ -1,4 +1,4 @@
-package com.ruirui.hibernate5.begin;
+package com.ruirui.hibernate5.genericdao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,7 +8,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class BasicConfigTest {
+public class GenericDAOTest {
 
     static SessionFactory sessionFactory;
 

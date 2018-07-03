@@ -1,4 +1,4 @@
-package com.ruirui.hibernate5.begin;
+package com.ruirui.hibernate5.genericdao;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
