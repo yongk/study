@@ -15,7 +15,7 @@
 
     <name>hibernate5</name>
     <modules>
-        <module>generic-dao</module>
+        <module>hibernate-begin</module>
     </modules>
 
     <properties>
